@@ -44,4 +44,4 @@ npm run build
 
 ## Pages / Search
 
-`psc5800.github.io` is treated as a separate user site. See `docs/PAGES_AND_SEARCH_SETUP.md` before registering the blog in Google Search Console or Naver Search Advisor.
+`psc5800.github.io` is treated as a separate existing user site. This blog is now targeted at `parksc9449-hash/codex-gemma-adsense-blog`; see `docs/PAGES_AND_SEARCH_SETUP.md` before registering it in Google Search Console or Naver Search Advisor.
