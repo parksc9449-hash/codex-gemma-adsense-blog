@@ -19,7 +19,13 @@ function normalizeMarkdown(source) {
   const fence = normalized.match(/^```(?:markdown|md)?\s*([\s\S]*?)\s*```$/i);
   if (fence) normalized = fence[1].trim();
   if (!normalized.startsWith("---")) return normalized;
-  const end = normalized.indexOf("\n---", 3);
+  let end = normalized.indexOf("\n---", 3);
+  if (end === -1) {
+    const headingIndex = normalized.search(/\n#\s+/);
+    if (headingIndex === -1) return normalized;
+    normalized = `${normalized.slice(0, headingIndex).trimEnd()}\n---\n\n${normalized.slice(headingIndex + 1).trimStart()}`;
+    end = normalized.indexOf("\n---", 3);
+  }
   if (end === -1) return normalized;
   const frontmatter = normalized.slice(3, end).trim();
   const body = normalized.slice(end + 4).trim();

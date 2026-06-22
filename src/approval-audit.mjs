@@ -5,7 +5,10 @@ import { config, projectPath } from "./lib/config.mjs";
 import { readMarkdownCollection } from "./lib/markdown.mjs";
 
 function wordishCount(text) {
-  return text.replace(/```[\s\S]*?```/g, " ").split(/\s+/).filter(Boolean).length;
+  const cleaned = text.replace(/```[\s\S]*?```/g, " ");
+  const spacedWords = cleaned.split(/\s+/).filter(Boolean).length;
+  const hangulSyllables = (cleaned.match(/[가-힣]/g) || []).length;
+  return spacedWords + Math.floor(hangulSyllables / 2);
 }
 
 function status(ok, label, detail, severity = "warn") {
