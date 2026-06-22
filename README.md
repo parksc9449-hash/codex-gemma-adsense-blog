@@ -45,3 +45,9 @@ npm run build
 ## Pages / Search
 
 `psc5800.github.io` is treated as a separate existing user site. This blog is now targeted at `parksc9449-hash/codex-gemma-adsense-blog`; see `docs/PAGES_AND_SEARCH_SETUP.md` before registering it in Google Search Console or Naver Search Advisor.
+
+Public URL:
+
+```text
+https://parksc9449-hash.github.io/codex-gemma-adsense-blog/
+```

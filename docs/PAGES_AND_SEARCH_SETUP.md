@@ -11,17 +11,25 @@ There are two separate GitHub Pages sites:
 | Existing user site | `psc5800/psc5800.github.io` | Separate root website; do not overwrite from this blog project |
 | Blog project site | `parksc9449-hash/codex-gemma-adsense-blog` | Codex + Gemma AdSense blog kit |
 
-The existing `psc5800.github.io` user site currently has a `CNAME` value of `adelaide.ns.cloudflare.com`. Keep it separate from this blog. Register the blog only after `parksc9449-hash/codex-gemma-adsense-blog` is created and its final public Pages URL or custom domain is confirmed.
+The existing `psc5800.github.io` user site currently has a `CNAME` value of `adelaide.ns.cloudflare.com`. Keep it separate from this blog.
+
+Final blog URL:
+
+```text
+https://parksc9449-hash.github.io/codex-gemma-adsense-blog/
+```
 
 ## What is already configured
 
 - The local blog repo is configured for `parksc9449-hash/codex-gemma-adsense-blog`.
+- GitHub Pages source is set to GitHub Actions.
+- HTTPS enforcement is enabled.
 - `psc5800/psc5800.github.io` has a GitHub Actions Pages workflow so the previous root site can remain separate.
 - The blog deployment workflow builds the static site and uploads the `site/` directory.
 
 ## Domain options
 
-Choose one before Search Console / Naver registration:
+The default project URL above is ready for Search Console / Naver registration. A custom domain can still be added later:
 
 1. Keep the root site custom domain and give this blog its own custom domain.
    Example: `blog.example.com` or `adsense.example.com`.
