@@ -51,3 +51,11 @@ Public URL:
 ```text
 https://parksc9449-hash.github.io/codex-gemma-adsense-blog/
 ```
+
+Search registration helper:
+
+```powershell
+.\scripts\open-search-registration.ps1
+.\scripts\set-search-verification.ps1 -GoogleToken "google-token"
+.\scripts\set-search-verification.ps1 -NaverToken "naver-token"
+```

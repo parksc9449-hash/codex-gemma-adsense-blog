@@ -46,11 +46,23 @@ After the final public URL is chosen:
 1. Open Google Search Console.
 2. Add a URL-prefix property for the final blog URL.
 3. Choose HTML tag verification.
-4. Put the token in `.env` as `GOOGLE_SITE_VERIFICATION`.
-5. Run `npm run build`.
-6. Push to GitHub and wait for the Pages workflow to complete.
+4. Copy only the token value from the meta tag.
+5. Run:
+
+```powershell
+.\scripts\set-search-verification.ps1 -GoogleToken "google-token"
+git add .github/workflows/pages.yml scripts docs README.md
+git commit -m "Configure search verification support"
+git push
+```
+
+6. Wait for the Pages workflow to complete.
 7. Click Verify in Search Console.
-8. Submit `sitemap.xml`.
+8. Submit:
+
+```text
+https://parksc9449-hash.github.io/codex-gemma-adsense-blog/sitemap.xml
+```
 
 ## Naver Search Advisor flow
 
@@ -59,8 +71,25 @@ After the final public URL is chosen:
 1. Open Naver Search Advisor / Webmaster Tools.
 2. Add the final blog URL.
 3. Choose HTML tag verification.
-4. Put the token in `.env` as `NAVER_SITE_VERIFICATION`.
-5. Run `npm run build`.
-6. Push to GitHub and wait for the Pages workflow to complete.
+4. Copy only the token value from the meta tag.
+5. Run:
+
+```powershell
+.\scripts\set-search-verification.ps1 -NaverToken "naver-token"
+git push
+```
+
+6. Wait for the Pages workflow to complete.
 7. Click ownership verification in Naver.
-8. Submit `sitemap.xml` and `rss.xml`.
+8. Submit:
+
+```text
+https://parksc9449-hash.github.io/codex-gemma-adsense-blog/sitemap.xml
+https://parksc9449-hash.github.io/codex-gemma-adsense-blog/rss.xml
+```
+
+## Open registration pages
+
+```powershell
+.\scripts\open-search-registration.ps1
+```
