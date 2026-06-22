@@ -16,6 +16,20 @@ function write(filePath, content) {
   fs.writeFileSync(filePath, content, "utf8");
 }
 
+function copyDirectoryFiles(sourceDir, targetDir) {
+  if (!fs.existsSync(sourceDir)) return;
+  for (const entry of fs.readdirSync(sourceDir, { withFileTypes: true })) {
+    const sourcePath = path.join(sourceDir, entry.name);
+    const targetPath = path.join(targetDir, entry.name);
+    if (entry.isDirectory()) {
+      copyDirectoryFiles(sourcePath, targetPath);
+    } else if (entry.isFile()) {
+      fs.mkdirSync(path.dirname(targetPath), { recursive: true });
+      fs.copyFileSync(sourcePath, targetPath);
+    }
+  }
+}
+
 function pageShell({ title, description, body, canonical }) {
   const metaVerification = [
     config.googleSiteVerification ? `<meta name="google-site-verification" content="${escapeHtml(config.googleSiteVerification)}">` : "",
@@ -133,6 +147,7 @@ ${entries.map((entry) => `  <url><loc>${escapeHtml(config.blogUrl + entry)}</loc
 cleanDir(siteDir);
 fs.mkdirSync(path.join(siteDir, "assets"), { recursive: true });
 fs.copyFileSync(path.join(publicDir, "site.css"), path.join(siteDir, "assets", "site.css"));
+copyDirectoryFiles(path.join(publicDir, "site-root"), siteDir);
 
 const posts = readMarkdownCollection(projectPath("content", "posts"))
   .filter((post) => post.data.draft !== "true")

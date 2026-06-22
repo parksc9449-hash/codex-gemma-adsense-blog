@@ -64,6 +64,12 @@ git push
 https://parksc9449-hash.github.io/codex-gemma-adsense-blog/sitemap.xml
 ```
 
+Current Google HTML file verification is deployed from:
+
+```text
+public/site-root/google6ed3a0194166dacb.html
+```
+
 ## Naver Search Advisor flow
 
 After the final public URL is chosen:
