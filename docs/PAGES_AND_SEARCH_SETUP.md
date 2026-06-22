@@ -9,6 +9,7 @@ There are two separate GitHub Pages sites:
 | Site | Repository | Purpose |
 | --- | --- | --- |
 | Existing user site | `psc5800/psc5800.github.io` | Separate root website; do not overwrite from this blog project |
+| Naver verification root | `parksc9449-hash/parksc9449-hash.github.io` | Root domain verification for Naver |
 | Blog project site | `parksc9449-hash/codex-gemma-adsense-blog` | Codex + Gemma AdSense blog kit |
 
 The existing `psc5800.github.io` user site currently has a `CNAME` value of `adelaide.ns.cloudflare.com`. Keep it separate from this blog.
@@ -19,11 +20,18 @@ Final blog URL:
 https://parksc9449-hash.github.io/codex-gemma-adsense-blog/
 ```
 
+Naver root URL:
+
+```text
+https://parksc9449-hash.github.io/
+```
+
 ## What is already configured
 
 - The local blog repo is configured for `parksc9449-hash/codex-gemma-adsense-blog`.
 - GitHub Pages source is set to GitHub Actions.
 - HTTPS enforcement is enabled.
+- `parksc9449-hash/parksc9449-hash.github.io` is configured with Naver HTML file verification and a root page linking to the blog.
 - `psc5800/psc5800.github.io` has a GitHub Actions Pages workflow so the previous root site can remain separate.
 - The blog deployment workflow builds the static site and uploads the `site/` directory.
 
@@ -72,10 +80,30 @@ public/site-root/google6ed3a0194166dacb.html
 
 ## Naver Search Advisor flow
 
-After the final public URL is chosen:
+Naver registration is done against the root URL:
+
+```text
+https://parksc9449-hash.github.io
+```
+
+Current verification assets:
+
+```text
+https://parksc9449-hash.github.io/naverd5f33a16cf083a48aadfdb00e2ea913f.html
+<meta name="naver-site-verification" content="3cc68671910b00467cbe39591dced2a867329643">
+```
+
+After ownership is verified, submit the blog sitemap and RSS:
+
+```text
+https://parksc9449-hash.github.io/codex-gemma-adsense-blog/sitemap.xml
+https://parksc9449-hash.github.io/codex-gemma-adsense-blog/rss.xml
+```
+
+Legacy manual flow:
 
 1. Open Naver Search Advisor / Webmaster Tools.
-2. Add the final blog URL.
+2. Add `https://parksc9449-hash.github.io`.
 3. Choose HTML tag verification.
 4. Copy only the token value from the meta tag.
 5. Run:
