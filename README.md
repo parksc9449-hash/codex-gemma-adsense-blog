@@ -41,3 +41,7 @@ npm run build
 - Codex OAuth credentials are not copied into this project.
 - GitHub Actions builds and deploys static files only; it does not run Codex OAuth or local Gemma.
 - Generated drafts are drafts. Review them before publishing.
+
+## Pages / Search
+
+`psc5800.github.io` is treated as a separate user site. See `docs/PAGES_AND_SEARCH_SETUP.md` before registering the blog in Google Search Console or Naver Search Advisor.
